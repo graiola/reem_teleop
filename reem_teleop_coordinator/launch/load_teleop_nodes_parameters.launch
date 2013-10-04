@@ -1,5 +1,7 @@
 <launch>
   
+  <!-- <node pkg="tf" type="static_transform_publisher" name="kinect_orientation_adapt" args="0.0 0 0 1.57 0.0 1.57  openni_depth_frame new_frame  10" /> -->
+
   <!-- load parameters onto the parameter server -->
   <rosparam command="load" file="$(find reem_teleop_coordinator)/config/parameters_teleop_nodes.yaml" />
   

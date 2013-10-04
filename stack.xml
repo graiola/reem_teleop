@@ -8,7 +8,7 @@
   <url>http://ros.org/wiki/reem_teleop</url>
   <depend stack="common_msgs" /> <!-- sensor_msgs, geometry_msgs -->
   <depend stack="geometry" /> <!-- tf, eigen, bullet -->
-  <depend stack="kinematics" /> <!-- kinematics_msgs -->
+  <!-- <depend stack="kinematics" /> --> <!-- kinematics_msgs -->
   <depend stack="arm_navigation" /> <!-- arm_navigation_msgs -->
   <depend stack="orocos_kinematics_dynamics" /> <!-- orocos_kdl -->
   <depend stack="robot_model" /> <!-- urdf -->

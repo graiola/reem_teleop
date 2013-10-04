@@ -40,76 +40,103 @@
 
 void MotionAdaption::publishData()
 {
+
+  //std::string ref_frame = "base_link";
+
   // Torso
-  pose_.header.stamp = ros::Time::now();
-  pose_.header.frame_id = "/torso_adapted";
-  pose_.pose.position.x = tf_torso_goal_.getOrigin().x();
-  pose_.pose.position.y = tf_torso_goal_.getOrigin().y();
-  pose_.pose.position.z = tf_torso_goal_.getOrigin().z();
-  pose_.pose.orientation.x = tf_torso_goal_.getRotation().x();
-  pose_.pose.orientation.y = tf_torso_goal_.getRotation().y();
-  pose_.pose.orientation.z = tf_torso_goal_.getRotation().z();
-  pose_.pose.orientation.w = tf_torso_goal_.getRotation().w();
-  pub_torso_pose_.publish(pose_);
+  transfStamp_.header.stamp = ros::Time::now();
+  //transfStamp_.header.frame_id = "/torso_adapted";
+  transfStamp_.header.frame_id = ref_frame;
+  transfStamp_.transform.translation.x = tf_torso_goal_.getOrigin().x();
+  transfStamp_.transform.translation.y = tf_torso_goal_.getOrigin().y();
+  transfStamp_.transform.translation.z = tf_torso_goal_.getOrigin().z();
+  transfStamp_.transform.rotation.x = tf_torso_goal_.getRotation().x();
+  transfStamp_.transform.rotation.y = tf_torso_goal_.getRotation().y();
+  transfStamp_.transform.rotation.z = tf_torso_goal_.getRotation().z();
+  transfStamp_.transform.rotation.w = tf_torso_goal_.getRotation().w();
+
+  pub_torso_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("torso_adapted",10);
+
+  pub_torso_pose_.publish(transfStamp_);
 
   // Head
-  pose_.header.stamp = ros::Time::now();
-  pose_.header.frame_id = "/head_adapted";
-  pose_.pose.position.x = tf_head_goal_.getOrigin().x();
-  pose_.pose.position.y = tf_head_goal_.getOrigin().y();
-  pose_.pose.position.z = tf_head_goal_.getOrigin().z();
-  pose_.pose.orientation.x = tf_head_goal_.getRotation().x();
-  pose_.pose.orientation.y = tf_head_goal_.getRotation().y();
-  pose_.pose.orientation.z = tf_head_goal_.getRotation().z();
-  pose_.pose.orientation.w = tf_head_goal_.getRotation().w();
-  pub_head_pose_.publish(pose_);
+  transfStamp_.header.stamp = ros::Time::now();
+  //transfStamp_.header.frame_id = "/head_adapted";
+  transfStamp_.header.frame_id = ref_frame;
+  transfStamp_.transform.translation.x = tf_head_goal_.getOrigin().x();
+  transfStamp_.transform.translation.y = tf_head_goal_.getOrigin().y();
+  transfStamp_.transform.translation.z = tf_head_goal_.getOrigin().z();
+  transfStamp_.transform.rotation.x = tf_head_goal_.getRotation().x();
+  transfStamp_.transform.rotation.y = tf_head_goal_.getRotation().y();
+  transfStamp_.transform.rotation.z = tf_head_goal_.getRotation().z();
+  transfStamp_.transform.rotation.w = tf_head_goal_.getRotation().w();
+
+  pub_head_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("head_adapted",10);
+
+  pub_head_pose_.publish(transfStamp_);
 
   // Right elbow
-  pose_.header.stamp = ros::Time::now();
-  pose_.header.frame_id = "/r_elbow_adapted";
-  pose_.pose.position.x = tf_r_elbow_goal_.getOrigin().x();
-  pose_.pose.position.y = tf_r_elbow_goal_.getOrigin().y();
-  pose_.pose.position.z = tf_r_elbow_goal_.getOrigin().z();
-  pose_.pose.orientation.x = tf_r_elbow_goal_.getRotation().x();
-  pose_.pose.orientation.y = tf_r_elbow_goal_.getRotation().y();
-  pose_.pose.orientation.z = tf_r_elbow_goal_.getRotation().z();
-  pose_.pose.orientation.w = tf_r_elbow_goal_.getRotation().w();
-  pub_r_elbow_pose_.publish(pose_);
+  transfStamp_.header.stamp = ros::Time::now();
+  //transfStamp_.header.frame_id = "/r_elbow_adapted";
+  transfStamp_.header.frame_id = ref_frame;
+  transfStamp_.transform.translation.x = tf_r_elbow_goal_.getOrigin().x();
+  transfStamp_.transform.translation.y = tf_r_elbow_goal_.getOrigin().y();
+  transfStamp_.transform.translation.z = tf_r_elbow_goal_.getOrigin().z();
+  transfStamp_.transform.rotation.x = tf_r_elbow_goal_.getRotation().x();
+  transfStamp_.transform.rotation.y = tf_r_elbow_goal_.getRotation().y();
+  transfStamp_.transform.rotation.z = tf_r_elbow_goal_.getRotation().z();
+  transfStamp_.transform.rotation.w = tf_r_elbow_goal_.getRotation().w();
+
+  pub_r_elbow_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("r_elbow_adapted",10);
+
+  pub_r_elbow_pose_.publish(transfStamp_);
 
   // Right hand
-  pose_.header.stamp = ros::Time::now();
-  pose_.header.frame_id = "/r_hand_adapted";
-  pose_.pose.position.x = tf_r_hand_goal_.getOrigin().x();
-  pose_.pose.position.y = tf_r_hand_goal_.getOrigin().y();
-  pose_.pose.position.z = tf_r_hand_goal_.getOrigin().z();
-  pose_.pose.orientation.x = tf_r_hand_goal_.getRotation().x();
-  pose_.pose.orientation.y = tf_r_hand_goal_.getRotation().y();
-  pose_.pose.orientation.z = tf_r_hand_goal_.getRotation().z();
-  pose_.pose.orientation.w = tf_r_hand_goal_.getRotation().w();
-  pub_r_hand_pose_.publish(pose_);
+  transfStamp_.header.stamp = ros::Time::now();
+  //transfStamp_.header.frame_id = "/r_hand_adapted";
+  transfStamp_.header.frame_id = ref_frame;
+  transfStamp_.transform.translation.x = tf_r_hand_goal_.getOrigin().x();
+  transfStamp_.transform.translation.y = tf_r_hand_goal_.getOrigin().y();
+  transfStamp_.transform.translation.z = tf_r_hand_goal_.getOrigin().z();
+  transfStamp_.transform.rotation.x = tf_r_hand_goal_.getRotation().x();
+  transfStamp_.transform.rotation.y = tf_r_hand_goal_.getRotation().y();
+  transfStamp_.transform.rotation.z = tf_r_hand_goal_.getRotation().z();
+  transfStamp_.transform.rotation.w = tf_r_hand_goal_.getRotation().w();
+
+  pub_r_hand_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("r_hand_adapted",10);
+
+  pub_r_hand_pose_.publish(transfStamp_);
 
   // Left elbow
-  pose_.header.stamp = ros::Time::now();
-  pose_.header.frame_id = "/l_elbow_adapted";
-  pose_.pose.position.x = tf_l_elbow_goal_.getOrigin().x();
-  pose_.pose.position.y = tf_l_elbow_goal_.getOrigin().y();
-  pose_.pose.position.z = tf_l_elbow_goal_.getOrigin().z();
-  pose_.pose.orientation.x = tf_l_elbow_goal_.getRotation().x();
-  pose_.pose.orientation.y = tf_l_elbow_goal_.getRotation().y();
-  pose_.pose.orientation.z = tf_l_elbow_goal_.getRotation().z();
-  pose_.pose.orientation.w = tf_l_elbow_goal_.getRotation().w();
-  pub_l_elbow_pose_.publish(pose_);
+  transfStamp_.header.stamp = ros::Time::now();
+  //transfStamp_.header.frame_id = "/l_elbow_adapted";
+  transfStamp_.header.frame_id = ref_frame;
+  transfStamp_.transform.translation.x = tf_l_elbow_goal_.getOrigin().x();
+  transfStamp_.transform.translation.y = tf_l_elbow_goal_.getOrigin().y();
+  transfStamp_.transform.translation.z = tf_l_elbow_goal_.getOrigin().z();
+  transfStamp_.transform.rotation.x = tf_l_elbow_goal_.getRotation().x();
+  transfStamp_.transform.rotation.y = tf_l_elbow_goal_.getRotation().y();
+  transfStamp_.transform.rotation.z = tf_l_elbow_goal_.getRotation().z();
+  transfStamp_.transform.rotation.w = tf_l_elbow_goal_.getRotation().w();
+
+  pub_l_elbow_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("l_elbow_adapted",10);
+
+  pub_l_elbow_pose_.publish(transfStamp_);
 
   // Left hand
-  pose_.header.stamp = ros::Time::now();
-  pose_.header.frame_id = "/l_hand_adapted";
-  pose_.pose.position.x = tf_l_hand_goal_.getOrigin().x();
-  pose_.pose.position.y = tf_l_hand_goal_.getOrigin().y();
-  pose_.pose.position.z = tf_l_hand_goal_.getOrigin().z();
-  pose_.pose.orientation.x = tf_l_hand_goal_.getRotation().x();
-  pose_.pose.orientation.y = tf_l_hand_goal_.getRotation().y();
-  pose_.pose.orientation.z = tf_l_hand_goal_.getRotation().z();
-  pose_.pose.orientation.w = tf_l_hand_goal_.getRotation().w();
-  pub_l_hand_pose_.publish(pose_);
+  transfStamp_.header.stamp = ros::Time::now();
+  //transfStamp_.header.frame_id = "/l_hand_adapted";
+  transfStamp_.header.frame_id = ref_frame;
+  transfStamp_.transform.translation.x = tf_l_hand_goal_.getOrigin().x();
+  transfStamp_.transform.translation.y = tf_l_hand_goal_.getOrigin().y();
+  transfStamp_.transform.translation.z = tf_l_hand_goal_.getOrigin().z();
+  transfStamp_.transform.rotation.x = tf_l_hand_goal_.getRotation().x();
+  transfStamp_.transform.rotation.y = tf_l_hand_goal_.getRotation().y();
+  transfStamp_.transform.rotation.z = tf_l_hand_goal_.getRotation().z();
+  transfStamp_.transform.rotation.w = tf_l_hand_goal_.getRotation().w();
+
+  pub_l_hand_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("l_hand_adapted",10);
+
+  pub_l_hand_pose_.publish(transfStamp_);
 }
 

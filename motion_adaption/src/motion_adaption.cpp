@@ -167,6 +167,10 @@ MotionAdaption::MotionAdaption(): nh_private_("~")
 
   r_elbow_extended_ = false;
   l_elbow_extended_ = false;
+
+
+  ref_frame = "/fixed_ref_frame"; //ref_frame
+
 }
 
 MotionAdaption::~MotionAdaption()
@@ -189,7 +193,7 @@ void MotionAdaption::adapt()
       if(adaptTransforms())
       {
         setGoals();
-        //publishData();
+        publishData();
       }
     }
   }
