@@ -78,7 +78,7 @@ bool MotionAdaption::adaptTransforms()
 bool MotionAdaption::adaptTorso()
 {
   // enter code here for setting a torso frame not centered at the robot's reference frame
-  
+
   tf_torso_goal_.setIdentity();
  // tf_broadcaster_.sendTransform(tf::StampedTransform(tf_torso_goal_, ros::Time::now(), ref_frame, "/torso_adapted"));
   internal_tf.setTransform(tf::StampedTransform(tf_torso_goal_, calc_time, ref_frame, "/torso_adapted"));
@@ -103,18 +103,17 @@ bool MotionAdaption::adaptHead()
   }
   tf_head_goal_.setIdentity();
   tf_head_goal_.setOrigin(tf_robot_torso_head_.getOrigin());
-  
+
   quat_ = tf_usr_head_.getRotation();
 //   quat_adjust_ = tf_robot_torso_head_.getRotation();
 //   quat_ = quat_ * quat_adjust_;
   tf_head_goal_.setRotation(quat_);
- 
+
  // tf_broadcaster_.sendTransform(tf::StampedTransform(tf_head_goal_, ros::Time::now(),ref_frame, "/head_adapted"));
   internal_tf.setTransform(tf::StampedTransform(tf_head_goal_, calc_time,ref_frame, "/head_adapted"));
-  
+
   return true;
 }
-
 
 bool MotionAdaption::scaleUserHandsAndElbows()
 { 
@@ -174,7 +173,6 @@ bool MotionAdaption::scaleUserHandsAndElbows()
   }
   return true;
 }
-
 
 bool MotionAdaption::adaptShoulders()
 {
@@ -430,4 +428,3 @@ bool MotionAdaption::adaptHands()
   internal_tf.setTransform(tf::StampedTransform(tf_l_hand_goal_, calc_time, "/l_elbow_adapted", "/l_hand_adapted"));
   return true;
 }
-

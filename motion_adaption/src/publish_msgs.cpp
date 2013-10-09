@@ -41,8 +41,6 @@
 void MotionAdaption::publishData()
 {
 
-  //std::string ref_frame = "base_link";
-
   // Torso
   transfStamp_.header.stamp = ros::Time::now();
   //transfStamp_.header.frame_id = "/torso_adapted";
@@ -55,7 +53,7 @@ void MotionAdaption::publishData()
   transfStamp_.transform.rotation.z = tf_torso_goal_.getRotation().z();
   transfStamp_.transform.rotation.w = tf_torso_goal_.getRotation().w();
 
-  pub_torso_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("torso_adapted",10);
+  pub_torso_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("torso_goal",10);
 
   pub_torso_pose_.publish(transfStamp_);
 
@@ -71,7 +69,7 @@ void MotionAdaption::publishData()
   transfStamp_.transform.rotation.z = tf_head_goal_.getRotation().z();
   transfStamp_.transform.rotation.w = tf_head_goal_.getRotation().w();
 
-  pub_head_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("head_adapted",10);
+  pub_head_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("head_goal",10);
 
   pub_head_pose_.publish(transfStamp_);
 
@@ -87,7 +85,7 @@ void MotionAdaption::publishData()
   transfStamp_.transform.rotation.z = tf_r_elbow_goal_.getRotation().z();
   transfStamp_.transform.rotation.w = tf_r_elbow_goal_.getRotation().w();
 
-  pub_r_elbow_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("r_elbow_adapted",10);
+  pub_r_elbow_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("r_elbow_goal",10);
 
   pub_r_elbow_pose_.publish(transfStamp_);
 
@@ -103,7 +101,7 @@ void MotionAdaption::publishData()
   transfStamp_.transform.rotation.z = tf_r_hand_goal_.getRotation().z();
   transfStamp_.transform.rotation.w = tf_r_hand_goal_.getRotation().w();
 
-  pub_r_hand_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("r_hand_adapted",10);
+  pub_r_hand_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("r_hand_goal",10);
 
   pub_r_hand_pose_.publish(transfStamp_);
 
@@ -119,7 +117,7 @@ void MotionAdaption::publishData()
   transfStamp_.transform.rotation.z = tf_l_elbow_goal_.getRotation().z();
   transfStamp_.transform.rotation.w = tf_l_elbow_goal_.getRotation().w();
 
-  pub_l_elbow_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("l_elbow_adapted",10);
+  pub_l_elbow_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("l_elbow_goal",10);
 
   pub_l_elbow_pose_.publish(transfStamp_);
 
@@ -135,8 +133,9 @@ void MotionAdaption::publishData()
   transfStamp_.transform.rotation.z = tf_l_hand_goal_.getRotation().z();
   transfStamp_.transform.rotation.w = tf_l_hand_goal_.getRotation().w();
 
-  pub_l_hand_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("l_hand_adapted",10);
+  pub_l_hand_pose_ = nh_.advertise<geometry_msgs::TransformStamped>("l_hand_goal",10);
 
   pub_l_hand_pose_.publish(transfStamp_);
+
 }
 

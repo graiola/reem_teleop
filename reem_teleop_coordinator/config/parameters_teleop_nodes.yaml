@@ -17,10 +17,10 @@ motion_adaption_node:
   robot:
     base_frame_name:              /base_link
     torso_ref_frame_name:         /torso_1_link
-    head_frame_name:              /head_1_link    
+    head_frame_name:              /head_2_link    
     right_shoulder_frame_name:    /arm_right_2_link
     right_elbow_frame_name:       /arm_right_4_link
-    right_hand_frame_name:         /arm_right_7_link   
+    right_hand_frame_name:        /arm_right_7_link   
     left_shoulder_frame_name:     /arm_left_2_link
     
   # define roations of orientations by roll pitch yaw

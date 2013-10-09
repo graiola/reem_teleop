@@ -169,6 +169,8 @@ class MotionAdaption
     ros::Publisher pub_r_hand_pose_;
     ros::Publisher pub_l_elbow_pose_;
     ros::Publisher pub_l_hand_pose_;
+    ros::Publisher pub_r_shoulder_elbow_pose_;
+    ros::Publisher pub_l_shoulder_elbow_pose_;
     geometry_msgs::PoseStamped pose_;
     geometry_msgs::TransformStamped transfStamp_;
 
